@@ -1,0 +1,39 @@
+[package]
+name = "owo"
+version = "0.2.0"
+edition = "2024"
+authors = ["Waterfall.Org"]
+description = "Like tree but outputs file contents to a single markdown file — perfect for LLM context"
+homepage = "https://github.com/waterfallorg/owo"
+repository = "https://github.com/waterfallorg/owo"
+license = "Apache-2.0"
+keywords = ["cli", "markdown", "llm", "context", "tree"]
+categories = ["command-line-utilities", "development-tools"]
+readme = "README.md"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+opt-level = "z"
+strip = true
+
+[dependencies]
+anyhow = "1.0.102"
+clap = { version = "4.5.60", features = [
+  "std",
+  "help",
+  "usage",
+  "suggestions",
+] }
+ignore = "0.4.25"
+num_cpus = "1.17.0"
+regex = "1.12.3"
+tokio = { version = "1.49.0", features = [
+  "rt",
+  "rt-multi-thread",
+  "macros",
+  "fs",
+  "sync",
+  "time",
+] }
